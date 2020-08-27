@@ -1,0 +1,42 @@
+{% extends 'register/base.html' %}
+{% load static %}
+{% block content %}
+
+	{% for res in restaurant %}
+	<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ res.rest_name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{res.rest_add}}</h6>
+    <p class="card-text">Welcome to this Restaurant</p>
+    <button class = "btn btn-success" onclick="fun()">Enter</button>
+  </div>
+</div>
+
+	{% endfor %}
+
+	<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Choose Your Dishes</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        	 <button type="button" name="order_dish_btn" class="btn btn-primary" onclick="OrderDishes(this)">Order</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <script src = "{% static 'trainingapp/js/restaurant.js' %}">
+{% endblock %}
